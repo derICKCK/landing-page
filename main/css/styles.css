@@ -1,0 +1,171 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Montserrat, Helvetica, sans-serif;/*Cambiar*/
+}
+
+/* NAVBAR */
+.navbar {
+  padding: 2px 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar img{
+ width: 80px;
+ height: auto;
+}
+.navbar a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+}
+
+/* Parte principal contenedor de color */
+.portada {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  padding: 80px 100px ;
+  background: linear-gradient(to right, #011e4e, #2053ba);
+  color: #fff;
+   box-shadow: 0 10px 15px #77a3ea; 
+}
+/*Texto principal*/
+.portada-texto {
+  max-width: 100%;
+}
+
+.portada h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.portada p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.boton {
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  background: rgb(255, 255, 255);
+  color: #002a74;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* IMAGEN */
+.portada-imagen img {
+  width: 400px;
+  border-radius: 30px;
+  
+}
+
+
+
+/* SECCIONES GENERALES */
+.seccion {
+ padding: 20px;
+  display: flex;
+  flex-direction: column; /* ← agrega esto */
+  align-items: center; 
+}
+
+.seccion h2 {
+  font-size: 36px;
+  margin-bottom: 20px; 
+  margin-top: 20px;
+  text-align: center; 
+  width: 100%; 
+
+ 
+  
+}
+
+/* Estilos para el párrafo de servicios (lo centra y le da separación) */
+.seccion p {
+  max-width: 800px; 
+  margin: 20px auto 40px auto; 
+  line-height: 1.6; 
+  text-align: left; 
+  justify-content: center;
+  padding: 20px;
+  background-color: #edf1f7;
+   box-shadow: 0 4px 15px #77a3ea; 
+}
+
+.escrito p {
+  padding: 10px;
+}
+/* CARDS DE SERVICIOS - Código modificado para mejor separación y diseño */
+.servicios {
+display: flex;
+  gap: 30px;
+  max-width: 1000px;
+  justify-content: center; /* centra horizontalmente los cards */ /* opcional, para que los cards bajen de línea si la pantalla es pequeña */
+  margin: 0 auto;
+   
+}
+
+.card {
+  background: #edf1f7;
+  padding: 30px; 
+  border-radius: 20px; 
+  box-shadow: 0 4px 15px #77a3ea; 
+  width: 33.33%; 
+  text-align: left; 
+
+}
+
+.card h3 {
+  font-size: 24px; 
+  margin-bottom: 5px;
+}
+.trabajos h2{
+ font-size: 36px;
+  padding: 40px 20px 20px 20px; 
+  text-align: center;
+  
+}
+.videos{
+ display: flex;             
+  justify-content: center;    
+  align-items: center;        
+  gap: 20px;                  
+  flex-wrap: wrap;     
+  background-color: #edf1f7;
+  border-radius: 30px;
+  padding: 20px;    
+}
+.instagram{
+   padding: 40px 100px ;
+  background: linear-gradient(to right, #011e4e, #2053ba);
+  position: static;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.instagram svg{
+  height: 40px;
+  
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 0.6s;
+}
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

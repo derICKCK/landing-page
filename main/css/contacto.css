@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Montserrat, Helvetica, sans-serif;/*Cambiar*/
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: #fefefe;
+  padding: 2px 200px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+ 
+}
+
+.navbar img{
+ width: 80px;
+ height: auto;
+}
+.navbar a {
+  margin-left: 20px;
+  text-decoration: none ;
+  color: #000;
+  font-weight:bold;
+  text-align: right;
+}
+.contacto {
+  display: flex;
+  flex-direction: column; 
+  max-width: 800px;       
+  padding: 20px;     
+  margin: auto;    
+  background: #d6deeb;   
+  border-radius: 30px;    
+  box-shadow: 0 4px 15px #77a3ea;
+  justify-content: center;
+  margin-top: 120px;
+
+}
+
+.contacto h2 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 0px;
+}
+
+.contacto label {
+  font-weight: bold;
+}
+.contacto input,
+.contacto textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-size: 16px;
+}
+body{
+  background: linear-gradient(to right, #011e4e, #2053ba);
+}
+.botoncon{
+  display: flex;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  background: rgb(255, 255, 255);
+  color: #000;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+ justify-content: flex-end;
+}
+/*Pie de pagina*/
+.instagram{
+   padding: 40px 100px ;
+  background: linear-gradient(to right, #011e4e, #2053ba);
+  position: static;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.instagram svg{
+  height: 40px;
+  
+}
