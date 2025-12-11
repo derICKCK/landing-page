@@ -1,4 +1,12 @@
-/* RESET */
+:root {
+  --azul-principal: #2053ba;   
+  --azul-secundario: #011e4e; 
+  --azul-claro: #007bff;       
+  --blanco: #fff;
+  --gris-fondo: #edf1f7;
+  --sombras:#77a3ea;
+}
+/* Inicio */
 * {
   margin: 0;
   padding: 0;
@@ -7,22 +15,54 @@
 }
 
 /* NAVBAR */
-.navbar {
-  padding: 2px 200px;
+.navegar {
+   padding: 0 190px;   /* márgenes internos a izquierda y derecha */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-.navbar img{
- width: 80px;
- height: auto;
+/* --- ENLACES DE LA NAVBAR --- */
+.nav-links a {
+    position: relative;
+    font-size: 18px;   
+    font-weight: bold;
 }
-.navbar a {
+
+/* ocultandor  de la linia */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+     bottom: -5px;
+    left: 0%;
+    width: 100%;
+    height: 3px;
+    background: var(--azul-claro);
+    transform: scaleX(0);
+    transition: transform 0.40s ease-out;
+
+}
+
+/* Aparicion linia */
+.nav-links a:hover::after
+ {
+    transform: scaleX(1);
+}
+
+.navegar img{
+    max-width: 20%;
+    outline: none;
+    vertical-align: middle;}
+.navegar a {
   margin-left: 20px;
   text-decoration: none;
   color: #000;
   font-weight: 600;
+  cursor: pointer;
+}
+/*Cambiar a pointer con la funcion del logo*/
+#milogo, #milogoo {
+    cursor: pointer; /* Cambia el cursor a manito */
+
 }
 
 /* Parte principal contenedor de color */
@@ -30,16 +70,16 @@
   display: flex;
   justify-content: space-between;
   align-items:center;
-  padding: 80px 100px ;
-  background: linear-gradient(to right, #011e4e, #2053ba);
-  color: #fff;
-   box-shadow: 0 10px 15px #77a3ea; 
+  padding: 115px 100px ;
+  background: linear-gradient(to right, var(--azul-secundario), var(--azul-principal));
+  color: var(--blanco);
+   box-shadow: 0 10px 20px var(--sombras); 
 }
 /*Texto principal*/
-.portada-texto {
-  max-width: 100%;
-}
+.portada-texto{
+  margin-left: 120px;
 
+}
 .portada h1 {
   font-size: 48px;
   font-weight: bold;
@@ -55,8 +95,8 @@
   padding: 12px 25px;
   font-size: 16px;
   font-weight: bold;
-  background: rgb(255, 255, 255);
-  color: #002a74;
+  background:var(--blanco);
+  color: var(--azul-principal);
   border: none;
   border-radius: 12px;
   cursor: pointer;
@@ -66,60 +106,63 @@
 .portada-imagen img {
   width: 400px;
   border-radius: 30px;
-  
+
 }
+/* Primero contenedor */
 
-
-
-/* SECCIONES GENERALES */
-.seccion {
- padding: 20px;
-  display: flex;
-  flex-direction: column; /* ← agrega esto */
-  align-items: center; 
-}
-
-.seccion h2 {
-  font-size: 36px;
-  margin-bottom: 20px; 
-  margin-top: 20px;
-  text-align: center; 
-  width: 100%; 
-
- 
-  
-}
-
-/* Estilos para el párrafo de servicios (lo centra y le da separación) */
-.seccion p {
-  max-width: 800px; 
-  margin: 20px auto 40px auto; 
-  line-height: 1.6; 
-  text-align: left; 
-  justify-content: center;
-  padding: 20px;
-  background-color: #edf1f7;
-   box-shadow: 0 4px 15px #77a3ea; 
-}
-
-.escrito p {
-  padding: 10px;
-}
 /* CARDS DE SERVICIOS - Código modificado para mejor separación y diseño */
 .servicios {
 display: flex;
   gap: 30px;
-  max-width: 1000px;
-  justify-content: center; /* centra horizontalmente los cards */ /* opcional, para que los cards bajen de línea si la pantalla es pequeña */
+  max-width: 800px;
+  justify-content: center; 
   margin: 0 auto;
    
 }
+/* Primero contenedor */
+.primer_contenedor {
+  display: flex;
+  padding: 40px;
+  background: var(--gris-fondo);
+  border-radius: 20px; 
+  align-items: flex-start;
 
+
+  width: 70%;
+  max-width: 1200px;
+  margin: 30px auto;
+}
+.primer_contenedor h2{
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.primer_contenedor img{
+  width: 300px;
+  border-radius: 20px;
+  margin: right;
+}
+.nombre{ 
+  display: flex;
+  flex-direction: column; /* apilar h2 y p verticalmente */
+  margin-left: 100px; 
+  margin-top: 100px;
+
+}
+.encabezado_primer_contenedor{
+  text-align: center;
+  font-size: 30px;
+  margin-top: 40px;
+}
+
+/*Tarjetas de Habilidades y equipo*/
 .card {
   background: #edf1f7;
+  display: flex;
+  flex-direction: column;
   padding: 30px; 
   border-radius: 20px; 
-  box-shadow: 0 4px 15px #77a3ea; 
+  box-shadow: 4px 4px 10px var(--sombras); 
   width: 33.33%; 
   text-align: left; 
 
@@ -145,22 +188,46 @@ display: flex;
   border-radius: 30px;
   padding: 20px;    
 }
+/*Pie de la pagina*/
+.pie {
+  background: linear-gradient(to right, var(--azul-secundario), var(--azul-principal));
+    padding: 20px;
+    text-align: center;
+    color: var(--blanco);
+}
+
+.pie-logo img {
+    width: 150px;
+}
+
+.pie-links {
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.pie-links a {
+    margin: 0 15px;
+    color: #bfc6db;
+    text-decoration: none;
+}
+
+.pie-links a:hover {
+    color: white;
+}
+/*Emoticono de insta*/
 .instagram{
-   padding: 40px 100px ;
-  background: linear-gradient(to right, #011e4e, #2053ba);
+   padding: 20px;
   position: static;
   width: 100%;
-  bottom: 0;
   display: flex;
   justify-content: center;
 }
 
 .instagram svg{
   height: 40px;
-  
 }
-
-.reveal {
+/*Animacion del scrolls*/
+.oculto {
   opacity: 0;
   transform: translateY(40px);
   transition: 0.6s;

@@ -1,4 +1,12 @@
-/* RESET */
+:root {
+  --azul-principal: #2053ba;   
+  --azul-secundario: #011e4e; 
+  --azul-claro: #007bff;       
+  --blanco: #fff;
+  --gris-fondo: #edf1f7;
+  --sombras:#77a3ea;
+}
+/* Inicio */
 * {
   margin: 0;
   padding: 0;
@@ -28,12 +36,7 @@
   text-align: right;
 }
 /* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Montserrat, Helvetica, sans-serif;
-}
+
 
 .navbar {
   background-color: #fefefe;
@@ -60,40 +63,36 @@
 .texto {
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 10px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 30px;
+  padding: 20px;
 }
 
-.hero-img img {
-  width: 420px;
-  border-radius: 30px;
+.derick-img img {
+  width: 400px;
+  border-radius: 20px;
 }
 
 h2 {
-  font-size: 38px;
-  line-height: 1.5;
+  font-size: 35px;
+  line-height: 1.2;
 }
 
-.blue {
-  color: #0078FF;
-}
-
-.items {
+.objetos {
   margin-top: 30px;
 }
 
-.item {
+.objeto {
   display: flex;
   margin-bottom: 15px;
   gap: 15px;
 }
 
-.item .icono {
+.objeto .icono {
   font-size: 40px;
 }
-.item p{
+.objeto p{
   margin-top: 15px;
 
 }
@@ -106,6 +105,37 @@ h2 {
 .destacar{
   color: #2594f5;
 }
+/* Primero contenedor */
+.primer_contenedor{
+  display: flex;
+  padding: 40px;
+  background: var(--gris-fondo);
+  border-radius: 20px; 
+  align-items: flex-start;
+
+
+  width: 70%;
+  max-width: 1200px;
+  margin: 30px auto;
+}
+.primer_contenedor h2{
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.primer_contenedor img{
+  width: 300px;
+  border-radius: 20px;
+  margin: right;
+}
+.primer_contenedor_encabezado{ 
+  display: flex;
+  flex-direction: column; /* apilar h2 y p verticalmente */
+  margin-left: 100px; 
+  margin-top: 100px;
+
+}
+
 /*pie de pagina*/
 .instagram{
    padding: 40px 100px ;

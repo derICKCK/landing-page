@@ -1,3 +1,12 @@
+ :root {
+  --azul-principal: #2053ba;   
+  --azul-secundario: #011e4e; 
+  --azul-claro: #007bff;       
+  --blanco: #fff;
+  --gris-fondo: #edf1f7;
+  --sombras:#77a3ea;
+}
+ /*Inicio*/
 * {
   margin: 0;
   padding: 0;

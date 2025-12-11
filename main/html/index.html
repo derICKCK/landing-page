@@ -3,86 +3,116 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Derick Espinosa - camara y editor de videos</title>
+    <title>Derick Espinosa - camara y editor de videos</title>
     <link rel="stylesheet" href="../css/styles.css" />
 </head>
 <body>
 
-  <!-- Navegacion -->
-  <header class="navbar">
-<h3>
-    <img src="../imagen/logo.png" alt="Logo de D">
-</h3>
-    <nav class="nav-links">
-      <a href="#">Inicio </a>
-      <a href="sobremi.html">Sobre mí</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
+    <!-- Navegacion -->
+    <header class="navegar">
+        <h3>
+            <img id="milogo" src="../imagen/logo.png"  alt="Logo de D">
+        </h3>
+        <nav class="nav-links">
+            <a href="#">Inicio </a>
+            <a href="sobremi.html">Sobre mí</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
 
-  </header>
-
-  <!-- Parte principal -->
-  <section class="portada">
-    <div class="portada-texto">
-      <p>Derick Espinosa Vargas</p>
-      <h1>Creador de vídeo y editor</h1>
-      <p>consigo que tu cuenta y negocio crezcan en redes</p>
-      <button class="boton">Empezar</button><!--quitarlo-->
+    <!-- Parte principal -->
+    <section class="portada">
+        <div class="portada-texto">
+            <p>Derick Espinosa Vargas</p>
+            <h1>Creador de vídeo y editor</h1>
+            <p>consigo que tu cuenta y negocio crezcan en redes</p>
+            <button class="boton">Empezar</button><!--quitarlo-->
+        </div>
+    <!--Foto del principio-->
+        <div class="portada-imagen">
+            <img src="../imagen/portada.jpg" alt="Imagen de Derick">
+        </div>
+    <!--Cuerpo-->
+    </section>
+    <div class="encabezado_primer_contenedor">
+    <h2>Personas que ya han confiado en mí</h2>
     </div>
-
-    <div class="portada-imagen">
-      <img src="../imagen/portada.jpg" alt="Imagen de Derick">
-    </div>
-  </section>
-
-  <!-- SERVICIOS -->
-  <section class="seccion">
-    <h2 class="reveal">servicios</h2>
     
-    <div class="card reveal">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maximus nulla a nunc accumsan aliquam. Fusce tincidunt vel ligula ac sollicitudin. Duis consequat mauris nisl, at mollis purus sagittis eu. Quisque ipsum tortor, egestas semper diam id, 
-      fringilla tempus est. Phasellus imperdiet nisl iaculis blandit egestas. Proin bibendum diam quis justo euismod, in laoreet augue pellentesque. Etiam consectetur iaculis pellentesque. Curabitur porta vulputate felis, eu porta nibh rutrum sed. Praesent vulputate ipsum eget lectus faucibus condimentum. Donec vitae sodales ligula.</p>
+ <section class="primer_contenedor">
+      <div class="sc-imagen">
+        <img src="../imagen/Hugo.jpeg" alt="Foto representativa">
     </div>
-  
+
+    <div class="nombre">
+        <h2>Hugo Barber</h2>
+
+        <p>RECORDATORIO:
+EL MIÉRCOLES 19 DE NOVIEMBRE DEBE ENTREGARSE EL TRABAJO PROPUESTO EN CLASE QUE TRATA SOBRE LA APLICACIÓN DE LA SOSTENIBILIDAD.
+SALUDOS.
+        </p>
+    </div>
+
 </section>
-
+    <!-- SERVICIOS -->
+   <h2 class="equipo">Habilidades & Equipo</h2>
     <section class="servicios">
-      <div class="card">
-        <h3>Grabación</h3>
-        <p>Grabación con dispositivo movil adaptados a tu estilo.</p>
-      </div>
+        <div class="card oculto">
+            <h3>Grabación</h3>
+            <p>Grabación con dispositivo movil adaptados a tu estilo.</p>
+        </div>
 
-      <div class="card reveal">
-        <h3>Edición</h3>
-        <p>Edición enfocada en impacto visual y virabilidad.</p>
-      </div>
+        <div class="card oculto">
+            <h3>Edición</h3>
+            <p>Edición enfocada en impacto visual y virabilidad.</p>
+        </div>
 
-      <div class="card">
-        <h3>Contenido Social</h3>
-        <p>Optimización para TikTok, Reels y Shorts.</p>
-      </div>
+        <div class="card oculto">
+            <h3>Contenido Social</h3>
+            <p>Optimización para TikTok, Reels y Shorts.</p>
+        </div>
     </section>
 
+    <!-- Previsualizacion de trabajos -->
+    <section id="trabajos" class="trabajos">
+        <div>
+            <h2>Portafolio</h2>
+        </div>
 
-  <!-- Previsualizacion de trabajos -->
-  <section id="trabajos" class="trabajos">
-      <div>
-       <h2>Portafolio</h2>
-         </div>
-       <div class="videos">
-        <video src="../Video/hugo.mp4" width="250px"controls></video>
-        <video src="../video/vid.mp4" width="250px"controls></video>
-        <video src="../video/GIO HALLOWING(2).mp4" width="250px"controls></video>
+        <div class="videos">
+            <video src="../Video/hugo.mp4" width="250px" controls></video>
+            <video src="../video/vid.mp4" width="250px" controls></video>
+            <video src="../video/GIO HALLOWING(2).mp4" width="250px" controls></video>
+        </div>
+    </section>
 
-         
-      </div>
-</section>
-<footer>
-  <div class="instagram">
-    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24"><g fill="none"><path stroke="#000000" stroke-width="2" d="M3 11c0-3.771 0-5.657 1.172-6.828C5.343 3 7.229 3 11 3h2c3.771 0 5.657 0 6.828 1.172C21 5.343 21 7.229 21 11v2c0 3.771 0 5.657-1.172 6.828C18.657 21 16.771 21 13 21h-2c-3.771 0-5.657 0-6.828-1.172C3 18.657 3 16.771 3 13z"/><circle cx="16.5" cy="7.5" r="1.5" fill="#000000"/><circle cx="12" cy="12" r="3" stroke="#000000" stroke-width="2"/></g></svg></a>
-  </div>
+  <footer class="pie">
+    
+    <div class="pie-logo">
+        <img id="milogoo" src="../imagen/logo.png" alt="Logo">
+    </div>
+
+    <!-- SVG de instagram -->
+    <div class="instagram">
+        <a href="https://www.instagram.com/derikc_ck/" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                <g fill="none">
+                    <path stroke="#000000" stroke-width="2"
+                        d="M3 11c0-3.771 0-5.657 1.172-6.828C5.343 3 7.229 3 11 3h2c3.771 0 5.657 0 6.828 1.172C21 5.343 21 7.229 21 11v2c0 3.771 0 5.657-1.172 6.828C18.657 21 16.771 21 13 21h-2c-3.771 0-5.657 0-6.828-1.172C3 18.657 3 16.771 3 13z" />
+                    <circle cx="16.5" cy="7.5" r="1.5" fill="#000000" />
+                    <circle cx="12" cy="12" r="3" stroke="#000000" stroke-width="2" />
+                </g>
+            </svg>
+        </a>
+    </div>
+    <hr>
+    <div class="pie-links">
+        <a href="#">Política de cookies</a>
+        <a href="#">Aviso legal</a>
+        <a href="#">Términos y condiciones</a>
+    </div>
+
+    <script src="../js/inicio.js"></script>
 </footer>
-<script src="../js/inicio.js"></script>
+
 </body>
 </html>
-
