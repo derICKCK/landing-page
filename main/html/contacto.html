@@ -9,21 +9,22 @@
 <body>
 
   <!-- NAVEGACIÓN -->
-  <header class="navbar">
-    <div>
-      <h3><img src="../imagen/logo.png" alt="Logo de D"></h3>
-    </div>
-    <nav class="nav-links">
-      <a href="index.html">Inicio</a>
-      <a href="sobremi.html">Sobre mí</a>
-      <a href="#">Contacto</a>
-    </nav>
-  </header>
+      <!-- Navegacion -->
+    <header class="navegar">
+        <h3>
+            <img id="milogo" src="../imagen/logo.png"  alt="Logo de D">
+        </h3>
+        <nav class="nav-links">
+            <a href="index.html">Inicio </a>
+            <a href="sobremi.html">Sobre mí</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
 
   <!-- SECCIÓN CONTACTO -->
   <section class="contacto">
     <h2>Contacto</h2>
-
+<div class="formulario">
     <form id="form-contacto">
       <label for="nombre">Nombre:</label>
       <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
@@ -37,21 +38,36 @@
       <button class="botoncon" type="submit">Enviar</button>
     </form>
   </section>
+</div>
 
-  <footer>
-    <div class="instagram">
-      <a href="">
-        <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24">
-          <g fill="none">
-            <path stroke="#000000" stroke-width="2"
-              d="M3 11c0-3.771 0-5.657 1.172-6.828C5.343 3 7.229 3 11 3h2c3.771 0 5.657 0 6.828 1.172C21 5.343 21 7.229 21 11v2c0 3.771 0 5.657-1.172 6.828C18.657 21 16.771 21 13 21h-2c-3.771 0-5.657 0-6.828-1.172C3 18.657 3 16.771 3 13z" />
-            <circle cx="16.5" cy="7.5" r="1.5" fill="#000000" />
-            <circle cx="12" cy="12" r="3" stroke="#000000" stroke-width="2" />
-          </g>
-        </svg>
-      </a>
+ <footer class="pie">
+    
+    <div class="pie-logo">
+        <img id="milogoo" src="../imagen/logo.png" alt="Logo">
     </div>
-  </footer>
+
+    <!-- SVG de instagram -->
+    <div class="instagram">
+        <a href="https://www.instagram.com/derikc_ck/" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                <g fill="none">
+                    <path stroke="#000000" stroke-width="2"
+                        d="M3 11c0-3.771 0-5.657 1.172-6.828C5.343 3 7.229 3 11 3h2c3.771 0 5.657 0 6.828 1.172C21 5.343 21 7.229 21 11v2c0 3.771 0 5.657-1.172 6.828C18.657 21 16.771 21 13 21h-2c-3.771 0-5.657 0-6.828-1.172C3 18.657 3 16.771 3 13z" />
+                    <circle cx="16.5" cy="7.5" r="1.5" fill="#000000" />
+                    <circle cx="12" cy="12" r="3" stroke="#000000" stroke-width="2" />
+                </g>
+            </svg>
+        </a>
+    </div>
+    <hr>
+    <div class="pie-links">
+        <a href="#">Política de cookies</a>
+        <a href="#">Aviso legal</a>
+        <a href="#">Términos y condiciones</a>
+    </div>
+
+    <script src="../js/contacto.js "></script>
+</footer>
 
 </body>
 </html>

@@ -15,26 +15,61 @@
 }
 
 /* NAVBAR */
-.navbar {
-  background-color: #fefefe;
-  padding: 2px 200px;
+.navegar {
+   padding: 0 190px;   /* márgenes internos a izquierda y derecha */
   display: flex;
   justify-content: space-between;
-  text-align: center;
   align-items: center;
+}
+/* Línea debajo del nav */
+.navegar {
+  width: 100%;
+  display: flex;
+  margin-bottom: 40px;
  
+  border-bottom: 1px solid var(--azul-secundario);
+}
+/* --- ENLACES DE LA NAVEGADOR --- */
+.nav-links a {
+    position: relative;
+    font-size: 18px;   
+    font-weight: bold;
 }
 
-.navbar img{
- width: 80px;
- height: auto;
+/* ocultandor  de la linia */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+     bottom: -5px;
+    left: 0%;
+    width: 100%;
+    height: 3px;
+    background: var(--azul-claro);
+    transform: scaleX(0);
+    transition: transform 0.40s ease-out;
+
 }
-.navbar a {
+
+/* Aparicion linia */
+.nav-links a:hover::after
+ {
+    transform: scaleX(1);
+}
+
+.navegar img{
+    max-width: 20%;
+}
+.navegar a {
   margin-left: 20px;
-  text-decoration: none ;
+  text-decoration: none;
   color: #000;
-  font-weight:bold;
-  text-align: right;
+  font-weight: 600;
+  cursor: pointer;
+}
+/*Cambiar a pointer con la funcion del logo*/
+#milogo, #milogoo {
+    cursor: pointer;
+    /* Cuerpo*/
 }
 .contacto {
   display: flex;
@@ -49,7 +84,10 @@
   margin-top: 120px;
 
 }
-
+/*Encabezado de contacto*/
+.contacto{
+  margin: 30px auto 30px;
+}
 .contacto h2 {
   text-align: center;
   font-size: 40px;
@@ -69,9 +107,9 @@
   border-radius: 10px;
   font-size: 16px;
 }
-body{
-  background: linear-gradient(to right, #011e4e, #2053ba);
-}
+
+
+
 .botoncon{
   display: flex;
   padding: 12px 25px;
@@ -85,17 +123,35 @@ body{
  justify-content: flex-end;
 }
 /*Pie de pagina*/
-.instagram{
-   padding: 40px 100px ;
-  background: linear-gradient(to right, #011e4e, #2053ba);
-  position: static;
-  width: 100%;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
+.pie {
+  background: linear-gradient(to right, var(--azul-secundario), var(--azul-principal));
+    padding: 20px;
+    text-align: center;
+    color: var(--blanco);
 }
 
-.instagram svg{
-  height: 40px;
-  
+.pie-logo img {
+    width: 150px;
+}
+
+.pie-links {
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.pie-links a {
+    margin: 15px;
+    color: var(--blanco);
+    text-decoration: none;
+}
+
+.pie-links a:hover {
+    color: var(--footer);
+}
+/*Emoticono de insta*/
+.instagram{
+   padding: 20px;
+  display: flex;
+  justify-content: center;
+
 }
