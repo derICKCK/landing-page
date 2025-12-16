@@ -1,192 +1,182 @@
+/* VARIABLES */
 :root {
-  --azul-principal: #2053ba;   
-  --azul-secundario: #011e4e; 
-  --azul-claro: #007bff;       
+  --azul-principal: #2053ba;
+  --azul-secundario: #011e4e;
+  --azul-claro: #007bff;
   --blanco: #fff;
   --gris-fondo: #edf1f7;
-  --sombras:#77a3ea;
+  --sombras: #77a3ea;
+  --footer: #bfc6db;
 }
-/* Inicio */
 
+/* RESET Y BASE */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Montserrat, Helvetica, sans-serif;/*Cambiar*/
 }
-/* Linia de separacion del navegador */
+
+.negrita {
+  font-weight: bold;
+}
+.emogi
+
+.destacar {
+  color: var(--azul-principal);
+}
+
+/* NAVEGACIÓN */
 .navegar {
   width: 100%;
-  display: flex;
-  margin-bottom: 40px;
- 
-  border-bottom: 1px solid var(--azul-secundario);
-}
-/* Navegador */
-.navegar {
-   padding: 0 190px;   /* márgenes internos a izquierda y derecha */
+  max-width: 1400px;
+  margin: 0 auto 40px;
+  padding: 0 5vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid var(--azul-secundario);
 }
 
-/* --- ENLACES DE LA NAVEGADOR --- */
+.navegar img {
+  width: 120px;
+}
+
 .nav-links a {
-    position: relative;
-    font-size: 18px;   
-    font-weight: bold;
-}
-
-/* ocultandor  de la linia */
-.nav-links a::after {
-    content: "";
-    position: absolute;
-     bottom: -5px;
-    left: 0%;
-    width: 100%;
-    height: 3px;
-    background: var(--azul-claro);
-    transform: scaleX(0);
-    transition: transform 0.40s ease-out;
-
-}
-
-/* Aparicion linia */
-.nav-links a:hover::after
- {
-    transform: scaleX(1);
-}
-
-.navegar img{
-    max-width: 20%;
-}
-.nav-links a {
+  position: relative;
   margin-left: 20px;
   text-decoration: none;
   color: #000;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: bold;
   cursor: pointer;
 }
-/*Cambiar a pointer con la funcion del logo*/
-#milogo, #milogoo {
-    cursor: pointer; /* Cambia el cursor a manito */
 
+/* Línea animada */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--azul-claro);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s;
 }
-/*Cuerpo*/
 
-/*Encabezado de historia*/
-.mi_historia {
-  text-align: center;
-  font-size: 40px;
-  margin: 10px auto 20px;
-
+.nav-links a:hover::after {
+  transform: scaleX(1);
 }
+
+/* Logo */
+#milogo,
+#milogoo {
+  cursor: pointer;
+}
+
+/* CUERPO */
 .texto {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  gap: 20px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 40px auto 30px;
   padding: 20px;
+  background-color: var(--gris-fondo);
+  box-shadow: 0 0 10px var(--azul-principal);
 }
 
 .derick-img img {
-  width: 400px;
+  width: 350px;
   border-radius: 20px;
 }
 
-h2 {
-  font-size: 35px;
-  line-height: 1.2;
-}
 
+/* LISTA */
 .objetos {
   margin-top: 30px;
 }
 
 .objeto {
   display: flex;
-  margin-bottom: 15px;
   gap: 15px;
+  margin-bottom: 15px;
 }
 
 .objeto .icono {
   font-size: 40px;
 }
-.objeto p{
+
+.objeto p {
   margin-top: 15px;
-
+  font-size: 20px;
 }
 
-.negrita{
-  font-weight: bold;
-}
-
-
-.destacar{
-  color: #2594f5;
-}
-/* Primero contenedor */
-.primer_contenedor{
-  display: flex;
-  padding: 40px;
-  background: var(--gris-fondo);
-  border-radius: 20px; 
-  align-items: flex-start;
-
-
-  width: 70%;
-  max-width: 1200px;
-  margin: 30px auto;
-}
-.primer_contenedor h2{
-  font-size: 32px;
+.Contenido h1 {
   margin-bottom: 20px;
-  text-align: left;
+  padding: 20px;
 }
-.primer_contenedor img{
-  width: 300px;
-  border-radius: 20px;
-  margin: right;
+
+/* SECCIÓN MIKI */
+.inspiracion_miki {
+  text-align: center;
 }
-.primer_contenedor_encabezado{ 
+
+.seccion_miki {
   display: flex;
-  flex-direction: column; /* apilar h2 y p verticalmente */
-  margin-left: 100px; 
-  margin-top: 100px;
-
+  align-items: center;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px 60px;
+  background: var(--gris-fondo);
+  border-radius: 30px;
 }
 
-/*pie de pagina*/
+.escrito_miki p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+.foto_miki {
+  max-width: 220px;
+}
+
+.foto_miki img {
+  width: 100%;
+  border-radius: 25px;
+}
+
+/* FOOTER */
 .pie {
   background: linear-gradient(to right, var(--azul-secundario), var(--azul-principal));
-    padding: 20px;
-    text-align: center;
-    color: var(--blanco);
+  text-align: center;
+  color: var(--blanco);
+  padding-bottom: 20px;
 }
 
 .pie-logo img {
-    width: 150px;
+  width: 110px;
 }
 
 .pie-links {
-    margin-top: 30px;
-    font-size: 14px;
+  margin: 30px auto 0;
+  font-size: 14px;
 }
 
 .pie-links a {
-    margin: 15px;
-    color: var(--blanco);
-    text-decoration: none;
+  padding: 0 10px;
+  color: var(--blanco);
+  text-decoration: none;
 }
 
 .pie-links a:hover {
-    color: var(--footer);
+  color: var(--footer);
 }
-/*Emoticono de insta*/
-.instagram{
-   padding: 20px;
+
+.instagram {
+  padding: 10px;
   display: flex;
   justify-content: center;
-
 }

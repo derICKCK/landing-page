@@ -1,8 +1,9 @@
-/**Funcion para ocultar los contendios del cuerpo hasta que se deslice abajo */
-const elementos = document.querySelectorAll(".oculto");
-//funcion1
-function mostrar() {
-  const elementos = document.querySelectorAll(".oculto"); // se ejecuta cada vez que haces scroll
+/* =========================
+   ANIMACIÓN SCROLL
+========================= */
+function mostrarElementos() {
+  const elementos = document.querySelectorAll(".oculto");
+
   elementos.forEach(elem => {
     const top = elem.getBoundingClientRect().top;
     if (top < window.innerHeight - 100) {
@@ -11,75 +12,78 @@ function mostrar() {
   });
 }
 
-//Boton para empezar
-document.getElementById("boton").addEventListener("click", () => {
-  document.getElementById("redireccion").scrollIntoView({
-    behavior: "smooth"
+window.addEventListener("scroll", mostrarElementos);
+
+/* =========================
+   BOTÓN "EMPEZAR"
+========================= */
+const boton = document.getElementById("boton");
+const seccionRedireccion = document.getElementById("redireccion");
+
+if (boton && seccionRedireccion) {
+  boton.addEventListener("click", () => {
+    seccionRedireccion.scrollIntoView({ behavior: "smooth" });
   });
-});
+}
 
-
-
-/**Funcion para ir al inicio al hacer click en el logo */
-//Funcion 2
+/* =========================
+   LOGO → IR AL INICIO
+========================= */
 function irAlInicio() {
-    window.location.href = "index.html"; 
+  window.location.href = "index.html";
 }
 
-document.getElementById("milogo").addEventListener("click", irAlInicio);
+const logoHeader = document.getElementById("milogo");
+const logoFooter = document.getElementById("milogoo");
 
+if (logoHeader) logoHeader.addEventListener("click", irAlInicio);
+if (logoFooter) logoFooter.addEventListener("click", irAlInicio);
 
-/*Funcion para ir al inicio al hacer click en el logo pero del footer 
-funcion 3*/
-
-function iralprincipio() {
-    window.location.href = "index.html"; 
-}
-
-document.getElementById("milogoo").addEventListener("click", iralprincipio);
-// Array
+/* =========================
+   SERVICIOS / CARDS
+========================= */
 const servicios = [
   {
     titulo: "Equipo",
-    descripcion: "Grabación con dispositivo móvil adaptados a tu estilo."
+    descripcion: "Grabación con dispositivo móvil adaptada a tu estilo.",
+    imagen: "../imagen/tripode.png"
   },
   {
     titulo: "Programas de Edición",
-    descripcion: "Edición enfocada en impacto visual y viralidad."
+    descripcion: "Edición enfocada en impacto visual y viralidad.",
+    imagen: "../imagen/Hugo.jpeg"
   },
   {
-    //
-    titulo: "Gestion de redes Social",
-    //Usamos un array para listar los servicios de descripcion y luego usar un join
-    descripcion: ["Optimización para TikTok","Reels","Shorts"]
+    titulo: "Gestión de Redes Sociales",
+    descripcion: ["Optimización para TikTok", "Reels", "Shorts"],
+    imagen: "../imagen/redes.png"
   }
 ];
-  //<Seleccionar de html un id
-const contenedorServicios = document.getElementById("servicios");
-  /*Funcion para mostrar los servicios en cartas
 
-  Funcion 4*/
+const contenedorServicios = document.getElementById("servicios");
 
 function mostrarServicios() {
+  if (!contenedorServicios) return;
+
   servicios.forEach(servicio => {
     const card = document.createElement("div");
     card.classList.add("card", "oculto");
 
+    const descripcion = Array.isArray(servicio.descripcion)
+      ? servicio.descripcion.join(", ")
+      : servicio.descripcion;
+
     card.innerHTML = `
       <h3>${servicio.titulo}</h3>
-      <p>${
-        Array.isArray(servicio.descripcion)
-          ? servicio.descripcion.join(", ")
-          : servicio.descripcion
-      }</p>
+      <p>${descripcion}</p>
     `;
 
     contenedorServicios.appendChild(card);
   });
 }
-// Crear cards
-mostrarServicios(); 
-// Mostrar las que ya están en pantalla 
-mostrar();          
- // Animación al hacer scroll 
-window.addEventListener("scroll", mostrar);
+
+/* =========================
+   INICIALIZACIÓN
+========================= */
+mostrarServicios();
+mostrarElementos();
