@@ -1,4 +1,5 @@
-/* VARIABLES */
+
+/* VARIABLES GLOBALE */
 :root {
   --azul-principal: #2053ba;
   --azul-secundario: #011e4e;
@@ -9,7 +10,9 @@
   --footer: #bfc6db;
 }
 
-/* RESET Y BASE */
+
+/* RESET Y BASE*/
+
 * {
   margin: 0;
   padding: 0;
@@ -21,21 +24,26 @@
   color: var(--azul-principal);
 }
 
-/* NAVEGACIÓN */
+
+/* NAVEGACIÓN*/
+
 .navegar {
   width: 100%;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 10px auto;
   padding: 0 5vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.navegar img {
-  width: 100px;
+.navegar img{
+  width: 65px
 }
-
+#logo_nav,
+#logo_pie{
+  cursor: pointer;
+}
 .navegar a {
   margin-left: 20px;
   text-decoration: none;
@@ -67,12 +75,9 @@
   transform: scaleX(1);
 }
 
-#milogo,
-#milogoo {
-  cursor: pointer;
-}
 
-/* PORTADA */
+/* PORTADA*/
+
 .portada {
   display: flex;
   justify-content: space-between;
@@ -114,11 +119,12 @@
   border-radius: 30px;
 }
 
-/* CONTENEDORES */
+/* CLIENTES / CONTENEDORES */
+
 .encabezado_primer_contenedor {
   text-align: center;
   font-size: 30px;
-  margin: 60px auto 0;
+  margin: 30px auto;
 }
 
 .primer_contenedor,
@@ -167,33 +173,76 @@
   border-radius: 25px;
 }
 
-/* SERVICIOS */
+/* SERVICIOS / TARJETAS  */
 .encabezado_segundo_contenedor h2 {
   text-align: center;
-  font-size: 30px;
-  margin-top: 60px;
+  font-size: 38px;
 }
 
 .servicios {
   display: flex;
-  gap: 60px;
-  max-width: 1300px;
-  margin: 30px auto;
+  flex-wrap: wrap;
+  justify-content: center;  /* Centra las tarjetas horizontalmente */
+  gap: 20px;
+  padding: 20px;
+  margin: 20px auto 30px;
 }
 
+/* Tarjetas giratorias */
 .card {
-  width: 33.33%;
-  padding: 30px;
-  background: var(--gris-fondo);
-  border-radius: 20px;
-  box-shadow: 4px 4px 10px var(--sombras);
+  perspective: 1000px;
+  background: none;
+  box-shadow: none;
+  flex: 1 1 220px;  /* Flex-grow, flex-shrink, ancho base mínimo */
+  max-width: 1000px; /* Tamaño máximo de cada tarjeta */
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  transform-style: preserve-3d;
+  transition: transform 0.7s;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gris-fondo);
 }
 
-.card h3 {
-  font-size: 24px;
+.card-front img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 15px;
+  margin-bottom: 10px;
 }
+
+.card-front h3 {
+  font-size: 26px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  text-align: center;
+  font-size: 18px;
+}
+
 
 /* EQUIPO */
 .equipo_conocimientos1 {
@@ -209,16 +258,15 @@
 }
 
 /* PORTAFOLIO */
-.trabajos h2 {
-  font-size: 36px;
-  padding: 40px 20px 20px;
+.portafolio h2 {
+  font-size: 40px;
   text-align: center;
+  padding: 20px 0;
 }
 
 .portafolio {
   text-align: center;
-  font-size: 30px;
-  margin: 60px auto 0;
+  margin: 0 auto;
   padding: 30px;
 }
 
@@ -227,7 +275,7 @@
   justify-content: space-between;
   background-color: var(--gris-fondo);
   border-radius: 30px;
-  margin: auto 50px;
+  margin: 20px auto;
   padding: 30px 60px;
 }
 
@@ -235,7 +283,7 @@
 .oculto {
   opacity: 0;
   transform: translateY(40px);
-  transition: opacity 0.6s 
+  transition: opacity 0.6s;
 }
 
 .visible {
@@ -249,10 +297,13 @@
   text-align: center;
   color: var(--blanco);
   padding-bottom: 20px;
+  margin-top: 40px;
 }
 
 .pie-logo img {
   width: 110px;
+  margin: 20px auto 0px;
+
 }
 
 .pie-links {
@@ -270,9 +321,10 @@
   color: var(--footer);
 }
 
-.instagram {
-  padding: 10px;
+.redes {
+  padding: 0px;
+  gap: 20px;
   display: flex;
   justify-content: center;
+  margin: 0 0 20px;
 }
-

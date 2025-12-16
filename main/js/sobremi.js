@@ -1,15 +1,9 @@
-/**Funcion para ir al inicio al hacer click en el logo */
-//Funcion 1
 function irAlInicio() {
-    window.location.href = "index.html"; 
+  window.location.href = "index.html";
 }
 
-document.getElementById("milogo").addEventListener("click", irAlInicio);
+const logoNav = document.getElementById("logo_nav");
+const logoFooter = document.getElementById("logo_pie");
 
-/**Funcion para ir al inicio al hacer click en el logo footer*/
-//Funcion 2
-function iralprincipio() {
-    window.location.href = "index.html"; 
-}
-
-document.getElementById("milogoo").addEventListener("click", iralprincipio);
+if (logoNav) logoNav.addEventListener("click", irAlInicio);
+if (logoFooter) logoFooter.addEventListener("click", irAlInicio);

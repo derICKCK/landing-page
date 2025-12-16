@@ -19,7 +19,6 @@
 .negrita {
   font-weight: bold;
 }
-.emogi
 
 .destacar {
   color: var(--azul-principal);
@@ -29,29 +28,36 @@
 .navegar {
   width: 100%;
   max-width: 1400px;
-  margin: 0 auto 40px;
+  margin: 10px auto;
   padding: 0 5vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--azul-secundario);
+  border-bottom: 2px solid var(--gris-fondo);
 }
 
-.navegar img {
-  width: 120px;
+.navegar img{
+  width: 65px;
+  margin-bottom: 5px;
+}
+#logo_nav,
+#logo_pie{
+  cursor: pointer;
+}
+.navegar a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .nav-links a {
   position: relative;
-  margin-left: 20px;
-  text-decoration: none;
-  color: #000;
   font-size: 18px;
   font-weight: bold;
-  cursor: pointer;
 }
 
-/* Línea animada */
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -70,56 +76,52 @@
 }
 
 /* Logo */
-#milogo,
-#milogoo {
+#logo_nav,
+#logo_pie{
   cursor: pointer;
 }
 
 /* CUERPO */
 .texto {
   display: flex;
-  gap: 20px;
+  gap: 40px;
   max-width: 1200px;
   margin: 40px auto 30px;
   padding: 20px;
   background-color: var(--gris-fondo);
   box-shadow: 0 0 10px var(--azul-principal);
+  border-radius: 20px;
 }
-
 .derick-img img {
   width: 350px;
   border-radius: 20px;
 }
 
-
-/* LISTA */
-.objetos {
-  margin-top: 30px;
-}
-
+/* Mantener los objetos alineados verticalmente */
 .objeto {
   display: flex;
-  gap: 15px;
-  margin-bottom: 15px;
-}
+  align-items: flex-start;
 
-.objeto .icono {
-  font-size: 40px;
+  gap: 10px;
+  margin: 40px auto 0;
 }
 
 .objeto p {
-  margin-top: 15px;
   font-size: 20px;
+  line-height: 1.5;
 }
 
-.Contenido h1 {
-  margin-bottom: 20px;
-  padding: 20px;
+.emogi {
+  font-size: 23px;
+  flex-shrink: 0;
 }
+
 
 /* SECCIÓN MIKI */
 .inspiracion_miki {
   text-align: center;
+  font-size: 35px;
+  margin: 50px auto 0;
 }
 
 .seccion_miki {
@@ -132,7 +134,9 @@
   background: var(--gris-fondo);
   border-radius: 30px;
 }
-
+.escrito_miki h2{
+  font-size: 30px;
+}
 .escrito_miki p {
   font-size: 18px;
   line-height: 1.6;
@@ -154,10 +158,13 @@
   text-align: center;
   color: var(--blanco);
   padding-bottom: 20px;
+    margin-top: 40px;
 }
 
 .pie-logo img {
   width: 110px;
+  margin: 20px auto 0px;
+
 }
 
 .pie-links {
@@ -175,8 +182,10 @@
   color: var(--footer);
 }
 
-.instagram {
-  padding: 10px;
+.redes {
+  padding: 0px;
+  gap: 20px;
   display: flex;
   justify-content: center;
+  margin: 0 0 20px;
 }
