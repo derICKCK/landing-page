@@ -21,7 +21,7 @@
   width: 100%;
   max-width: 1400px;
   margin: 10px auto;
-  padding: 0 5vw;
+  padding: 0 96px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,6 +32,7 @@
   width: 65px;
   margin-bottom: 5px;
 }
+/*Click logos*/
 #logo_nav,
 #logo_pie{
   cursor: pointer;
@@ -40,7 +41,7 @@
   margin-left: 20px;
   text-decoration: none;
   color: #000;
-  font-weight: 600;
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -67,11 +68,6 @@
   transform: scaleX(1);
 }
 
-/* Logo */
-#milogo,
-#milogoo {
-  cursor: pointer;
-}
 /* CONTACTO */
 .contacto {
 display: flex;
@@ -79,16 +75,15 @@ flex-direction: column;
 max-width: 800px;
 padding: 20px;
 margin: 30px auto;
-background: #d6deeb;
+background: var(--gris-fondo);
 border-radius: 30px;
-box-shadow: 0 4px 15px #77a3ea;
+box-shadow: 0 4px 15px var(--sombras);
 justify-content: center;
 }
 
 .contacto h1 {
 text-align: center;
 font-size: 40px;
-margin-bottom: 0;
 }
 
 .contacto label {
@@ -100,7 +95,7 @@ font-weight: bold;
 width: 100%;
 padding: 10px;
 margin: 10px 0;
-border: 1px solid #000;
+border: 1px solid var(--azul-secundario);
 border-radius: 10px;
 font-size: 16px;
 }
@@ -109,13 +104,11 @@ font-size: 16px;
 padding: 12px 25px;
 font-size: 16px;
 font-weight: bold;
-background: #fff;
-color: #000;
+background: var(--blanco);
+color: var(--azul-secundario);
 border: none;
 border-radius: 12px;
 cursor: pointer;
-display: flex;
-justify-content: flex-end;
 }
 
 /* FOOTER */
@@ -139,7 +132,7 @@ justify-content: flex-end;
 }
 
 .pie-links a {
-  padding: 0 10px;
+  padding: 0 20px;
   color: var(--blanco);
   text-decoration: none;
 }
@@ -149,9 +142,8 @@ justify-content: flex-end;
 }
 
 .redes {
-  padding: 0px;
-  gap: 20px;
   display: flex;
   justify-content: center;
-  margin: 0 0 20px;
+   gap: 20px;
+   margin-bottom: 20px;
 }

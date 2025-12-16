@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto</title>
 
+  <!-- Estilos -->
   <link rel="stylesheet" href="../css/contacto.css">
   <link rel="stylesheet" href="../css/tipografias.css">
   <link rel="icon" href="../imagen/head.png">
@@ -12,6 +13,7 @@
 
 <body>
 
+  <!-- Navegación -->
   <header class="navegar">
     <img id="logo_nav" src="../imagen/logo.png" alt="Logo de D">
 
@@ -22,33 +24,40 @@
     </nav>
   </header>
 
+  <!-- contacto -->
   <main>
     <section class="contacto">
       <h1>Contacto</h1>
 
+      <!-- Formulario -->
       <form id="form-contacto">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
 
-            <label for="email">Correo electrónico:</label>
-            <input type="email" id="email" name="email" placeholder="Tu email" required>
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" placeholder="Tu email" required>
 
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje" rows="5" required></textarea>
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje" rows="5" required></textarea>
 
-            <button class="botoncon" type="submit">Enviar</button>
+        <button class="botoncon" type="submit">Enviar</button>
       </form>
 
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="pie">
+
+    <!-- Logo del footer -->
     <div class="pie-logo">
       <img id="logo_pie" src="../imagen/logo.png" alt="Logo">
     </div>
 
+    <!-- Redes sociales -->
     <div class="redes">
       <a href="https://www.instagram.com/derikc_ck/" target="_blank" aria-label="Instagram">
+        <!-- Icono Instagram -->
         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
           <g fill="none">
             <path stroke="#000000" stroke-width="2"
@@ -60,6 +69,7 @@
       </a>
 
       <a href="https://www.tiktok.com/@derikc_ck" target="_blank" aria-label="TikTok">
+        <!-- Icono TikTok -->
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 16 16">
           <path fill="#000000"
             d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z"/>
@@ -69,13 +79,15 @@
 
     <hr>
 
+    <!-- Enlaces politicas -->
     <div class="pie-links">
       <a href="politicas.html">Política de cookies</a>
       <a href="aviso_legal.html">Aviso legal</a>
       <a href="ter_condiciones.html">Términos y condiciones</a>
     </div>
 
-    <script src="../js/inicio.js" defer></script>
+    <!-- Script JS -->
+    <script src="../js/contacto.js" defer></script>
   </footer>
 
 </body>

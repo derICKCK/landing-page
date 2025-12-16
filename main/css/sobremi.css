@@ -9,7 +9,7 @@
   --footer: #bfc6db;
 }
 
-/* RESET Y BASE */
+/* Reinicio para los buscadores*/
 * {
   margin: 0;
   padding: 0;
@@ -24,12 +24,12 @@
   color: var(--azul-principal);
 }
 
-/* NAVEGACIÓN */
+/*header general*/
 .navegar {
   width: 100%;
   max-width: 1400px;
   margin: 10px auto;
-  padding: 0 5vw;
+  padding: 0 96px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,6 +40,8 @@
   width: 65px;
   margin-bottom: 5px;
 }
+/*Click logos*/
+
 #logo_nav,
 #logo_pie{
   cursor: pointer;
@@ -48,7 +50,7 @@
   margin-left: 20px;
   text-decoration: none;
   color: #000;
-  font-weight: 600;
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -75,13 +77,8 @@
   transform: scaleX(1);
 }
 
-/* Logo */
-#logo_nav,
-#logo_pie{
-  cursor: pointer;
-}
 
-/* CUERPO */
+/* Yo despues de x */
 .texto {
   display: flex;
   gap: 40px;
@@ -101,29 +98,29 @@
 .objeto {
   display: flex;
   align-items: flex-start;
-
   gap: 10px;
   margin: 40px auto 0;
 }
 
 .objeto p {
   font-size: 20px;
-  line-height: 1.5;
 }
 
 .emogi {
   font-size: 23px;
-  flex-shrink: 0;
+
 }
 
 
-/* SECCIÓN MIKI */
+/* SECCIÓN MIKI  */
+
+/*H2*/
 .inspiracion_miki {
   text-align: center;
   font-size: 35px;
   margin: 50px auto 0;
 }
-
+/*texto miki*/
 .seccion_miki {
   display: flex;
   align-items: center;
@@ -139,7 +136,6 @@
 }
 .escrito_miki p {
   font-size: 18px;
-  line-height: 1.6;
   margin-top: 15px;
 }
 
@@ -173,7 +169,7 @@
 }
 
 .pie-links a {
-  padding: 0 10px;
+  padding: 0 20px;
   color: var(--blanco);
   text-decoration: none;
 }
@@ -181,11 +177,10 @@
 .pie-links a:hover {
   color: var(--footer);
 }
-
+/*SVG*/
 .redes {
-  padding: 0px;
-  gap: 20px;
   display: flex;
   justify-content: center;
-  margin: 0 0 20px;
+    gap: 20px;
+  margin-bottom: 20px;
 }

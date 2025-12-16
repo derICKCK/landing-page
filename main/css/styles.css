@@ -10,15 +10,14 @@
   --footer: #bfc6db;
 }
 
-
-/* RESET Y BASE*/
+/* Reinicio para los buscadores*/
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+/*Color para destacar elementos*/
 .destacar {
   font-weight: bold;
   color: var(--azul-principal);
@@ -27,11 +26,12 @@
 
 /* NAVEGACIÓN*/
 
+/*header general*/
 .navegar {
   width: 100%;
   max-width: 1400px;
   margin: 10px auto;
-  padding: 0 5vw;
+  padding: 0 96px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,6 +40,7 @@
 .navegar img{
   width: 65px
 }
+/*Click logos*/
 #logo_nav,
 #logo_pie{
   cursor: pointer;
@@ -47,8 +48,8 @@
 .navegar a {
   margin-left: 20px;
   text-decoration: none;
-  color: #000;
-  font-weight: 600;
+  color: var(--azul-secundario);
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -82,7 +83,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 90px 5vw;
+  padding: 90px 96px;
   background: linear-gradient(to right, var(--azul-secundario), var(--azul-principal));
   color: var(--blanco);
   box-shadow: 0 10px 20px var(--sombras);
@@ -95,19 +96,18 @@
 .portada h1 {
   font-size: 50px;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .portada p {
   font-size: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
-
+/*empezar*/
 .boton {
   padding: 12px 25px;
   font-size: 16px;
   font-weight: bold;
-  background: var(--blanco);
   color: var(--azul-principal);
   border: none;
   border-radius: 12px;
@@ -139,11 +139,11 @@
   background: var(--gris-fondo);
   border-radius: 30px;
 }
-
+/*Invertido*/
 .segundo_contenedor {
   flex-direction: row-reverse;
 }
-
+/*Contenedor dentro del contenedor*/
 .nombre_hugo,
 .nombre_gio,
 .nombre_mosca {
@@ -162,7 +162,6 @@
 .nombre_gio p,
 .nombre_mosca p {
   font-size: 18px;
-  line-height: 1.6;
   margin-top: 15px;
 }
 
@@ -173,16 +172,15 @@
   border-radius: 25px;
 }
 
-/* SERVICIOS / TARJETAS  */
+/* Habilidades & Equipo */
 .encabezado_segundo_contenedor h2 {
   text-align: center;
   font-size: 38px;
 }
-
+/*Contenedor*/
 .servicios {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;  /* Centra las tarjetas horizontalmente */
+  justify-content: center; 
   gap: 20px;
   padding: 20px;
   margin: 20px auto 30px;
@@ -243,40 +241,24 @@
   font-size: 18px;
 }
 
-
-/* EQUIPO */
-.equipo_conocimientos1 {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  margin: 10px auto;
-}
-
-.equipo_conocimientos1 img {
-  width: 100px;
-  border-radius: 8px;
-}
-
 /* PORTAFOLIO */
 .portafolio h2 {
   font-size: 40px;
   text-align: center;
-  padding: 20px 0;
-}
 
+}
+/*Contenedor*/
 .portafolio {
-  text-align: center;
-  margin: 0 auto;
-  padding: 30px;
+  padding: 20px;
 }
 
 .videos {
   display: flex;
   justify-content: space-between;
   background-color: var(--gris-fondo);
-  border-radius: 30px;
+  border-radius: 50px;
   margin: 20px auto;
-  padding: 30px 60px;
+  padding: 30px 100px;
 }
 
 /* ANIMACIONES */
@@ -297,22 +279,22 @@
   text-align: center;
   color: var(--blanco);
   padding-bottom: 20px;
-  margin-top: 40px;
+  margin-top: 20px;
 }
-
+/*Imagen logo*/
 .pie-logo img {
   width: 110px;
   margin: 20px auto 0px;
 
 }
-
+/*Contenedor politicas,etc*/
 .pie-links {
   margin: 30px auto 0;
   font-size: 14px;
 }
 
 .pie-links a {
-  padding: 0 10px;
+  padding: 0 20px;
   color: var(--blanco);
   text-decoration: none;
 }
@@ -320,11 +302,10 @@
 .pie-links a:hover {
   color: var(--footer);
 }
-
+/*Svg*/
 .redes {
-  padding: 0px;
-  gap: 20px;
   display: flex;
   justify-content: center;
-  margin: 0 0 20px;
+   gap: 20px;
+  margin-bottom:20px;
 }

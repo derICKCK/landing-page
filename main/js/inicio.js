@@ -1,31 +1,31 @@
-/* ===================== */
-/* BOTÓN "EMPEZAR"       */
-/* ===================== */
+/*funcion1*/
+
+/* BOTÓN "EMPEZAR"*/
 const boton = document.getElementById("boton");
 const seccionRedireccion = document.getElementById("redireccion");
 
+/*Si exite funcionara */
 if (boton && seccionRedireccion) {
-  boton.addEventListener("click", () => {
-    seccionRedireccion.scrollIntoView({ behavior: "smooth" });
+  boton.addEventListener("click", () => { /*escucha el click*/
+    seccionRedireccion.scrollIntoView({ behavior: "smooth" });  /*movimiento del boton hasta el elemento elegido co id*/ 
   });
 }
 
-/* ===================== */
-/* LOGO → IR AL INICIO   */
-/* ===================== */
+/*Funcion 2*/
+
+/* ir al inicio con el logo */
 function irAlInicio() {
-  window.location.href = "index.html";
+  window.location.href = "index.html";  
 }
 
 const logonav = document.getElementById("logo_nav");
 const logopie = document.getElementById("logo_pie");
 
 if (logonav) logonav.addEventListener("click", irAlInicio);
-if (logopie) logopie.addEventListener("click", irAlInicio);
+if (logopie) logopie.addEventListener("click", irAlInicio);/*Si haces click a los elementos te redireciona */
 
-/* ===================== */
-/* SERVICIOS / CARDS     */
-/* ===================== */
+  /*Funcion 3 + array*/
+/* SERVICIOS / CARDS  */
 const servicios = [
   {
     titulo: "Equipo",
@@ -46,37 +46,36 @@ const servicios = [
 
 const contenedorServicios = document.getElementById("servicios");
 
-/* ===================== */
 /* INTERSECTION OBSERVER */
-/* ===================== */
-const observer = new IntersectionObserver(
-  (entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        obs.unobserve(entry.target);
+const observer = new IntersectionObserver( /* Observa cunado las tarjtas entran en pantalla */
+
+  (entries, obs) => { /*contener elementos con entries y observar elementos con obs */
+
+    entries.forEach(entry => { /*Comprueba si entra un elemento= funcion flecha  */
+
+      if (entry.isIntersecting) {/*Mira si el elemento ya esta en pantalla ture/ false */
+
+        entry.target.classList.add("visible"); /*Le añades una clase al elmento observado  */
+
+        obs.unobserve(entry.target);/*Dejar de observar el elemento*/
       }
     });
   },
-  {
-    threshold: 0.2
-  }
 );
 
-/* ===================== */
-/* CREAR DOM             */
-/* ===================== */
+/* CREAR DOM */
 function mostrarServicios() {
-  if (!contenedorServicios) return;
+  if (!contenedorServicios) return; /*Comprobacion si no exite (!) */
 
   servicios.forEach(servicio => {
-    const card = document.createElement("div");
-    card.classList.add("card", "oculto");
+    const card = document.createElement("div");   /*crecion dinamico de contenedor */
+    card.classList.add("card", "oculto"); /*Añadimos estilo  y oculto */
 
+                          /*Estructura del div que acabamos de crear */
     card.innerHTML = `
       <div class="card-inner">
-        <div class="card-front">
-          <img src="${servicio.imagen}" alt="${servicio.titulo}">
+        <div class="card-front">          
+          <img src="${servicio.imagen}" alt="${servicio.titulo}"> 
           <h3>${servicio.titulo}</h3>
         </div>
         <div class="card-back">
@@ -84,13 +83,11 @@ function mostrarServicios() {
         </div>
       </div>
     `;
-
+        /*Añadimos los ajuestes a html*/
     contenedorServicios.appendChild(card);
-    observer.observe(card);
+    observer.observe(card);/* Empieza a vigilar card */
   });
 }
 
-/* ===================== */
-/* INICIO                */
-/* ===================== */
-mostrarServicios();
+/* INICIO */
+mostrarServicios(); /*Ejecucion de función */

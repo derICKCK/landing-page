@@ -6,4 +6,4 @@ const logoNav = document.getElementById("logo_nav");
 const logoFooter = document.getElementById("logo_pie");
 
 if (logoNav) logoNav.addEventListener("click", irAlInicio);
-if (logoFooter) logoFooter.addEventListener("click", irAlInicio);
+if (logoFooter) logoFooter.addEventListener("click", irAlInicio);   /*Si haces click a los elementos te redireciona */
