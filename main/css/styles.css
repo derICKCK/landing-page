@@ -15,7 +15,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box;/*mantener los elmentos de fuera como lo indicas*/
 }
 /*Color para destacar elementos*/
 .destacar {
@@ -187,6 +187,7 @@
 }
 
 /* Tarjetas giratorias */
+ /*bloqu incial que gira 3d*/
 .card {
   perspective: 1000px;
   background: none;
@@ -195,11 +196,11 @@
   max-width: 1000px; /* Tamaño máximo de cada tarjeta */
 }
 
-.card-inner {
+.card-inner { /*Padres*/
   position: relative;
   width: 100%;
   height: 220px;
-  transform-style: preserve-3d;
+  transform-style: preserve-3d; /*vista 3d*/
   transition: transform 0.7s;
 }
 
@@ -207,13 +208,13 @@
   transform: rotateY(180deg);
 }
 
-.card-front,
+.card-front,/*hijos*/
 .card-back {
   position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
+  inset: 0;/*ocupamos el mismo espacio qu el padre*/
+  backface-visibility: hidden;/*esconde el contenido para qwue nsee vea al rves*/
   border-radius: 12px;
-  padding: 1.5rem;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;

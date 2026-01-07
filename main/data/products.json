@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "nombre": "Servicio de grabación",
+    "descripcion": "Grabación de vídeo profesional",
+    "precio": 15
+  },
+  {
+    "id": 2,
+    "nombre": "Edición de vídeo",
+    "descripcion": "Edición para redes sociales",
+    "precio": 25
+  },
+    {
+        "id": 3,
+        "nombre": "Fotografía de eventos",
+        "descripcion": "Cobertura fotográfica para eventos",
+        "precio": 50
+    }
+]

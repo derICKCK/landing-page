@@ -57,7 +57,7 @@ const observer = new IntersectionObserver( /* Observa cunado las tarjtas entran 
 
         entry.target.classList.add("visible"); /*Le añades una clase al elmento observado  */
 
-        obs.unobserve(entry.target);/*Dejar de observar el elemento*/
+        obs.unobserve(entry.target);/*Dejar de observar el elemento del dom*/
       }
     });
   },
@@ -65,29 +65,49 @@ const observer = new IntersectionObserver( /* Observa cunado las tarjtas entran 
 
 /* CREAR DOM */
 function mostrarServicios() {
-  if (!contenedorServicios) return; /*Comprobacion si no exite (!) */
+  if (!contenedorServicios) return;
 
-  servicios.forEach(servicio => {
-    const card = document.createElement("div");   /*crecion dinamico de contenedor */
-    card.classList.add("card", "oculto"); /*Añadimos estilo  y oculto */
+  /* bucle for */
+  for (let i = 0; i < servicios.length; i++) {
+    console.log("Servicio cargado:", servicios[i].titulo);
+  }
 
-                          /*Estructura del div que acabamos de crear */
-    card.innerHTML = `
+  /* Array, join, indexar a html  */
+  const cardsHTML = servicios.map(servicio => `
+    <div class="card oculto">
       <div class="card-inner">
-        <div class="card-front">          
-          <img src="${servicio.imagen}" alt="${servicio.titulo}"> 
+        <div class="card-front">
+          <img src="${servicio.imagen}" alt="${servicio.titulo}">
           <h3>${servicio.titulo}</h3>
         </div>
         <div class="card-back">
           <p>${servicio.descripcion}</p>
         </div>
       </div>
-    `;
-        /*Añadimos los ajuestes a html*/
-    contenedorServicios.appendChild(card);
-    observer.observe(card);/* Empieza a vigilar card */
-  });
+    </div>
+  `).join(" ");
+
+  contenedorServicios.innerHTML = cardsHTML;
+
+  /* OBSERVAR LAS CARDS */
+  const cards = contenedorServicios.querySelectorAll(".card");
+  cards.forEach(card => observer.observe(card));
 }
+
 
 /* INICIO */
 mostrarServicios(); /*Ejecucion de función */
+
+/*Fetch*/
+
+async function cargarProductosJSON() {
+  try {
+    const res = await fetch("../data/products.json");
+    const productos = await res.json();
+    console.log("Productos desde JSON:", productos);
+  } catch (error) {
+    console.error("Error cargando JSON", error);
+  }
+}
+
+cargarProductosJSON();
