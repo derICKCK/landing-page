@@ -98,7 +98,7 @@ function mostrarServicios() {
 /* INICIO */
 mostrarServicios(); /*Ejecucion de función */
 
-/*Fetch*/
+/*json consola*/
 
 async function cargarProductosJSON() {
   try {
@@ -111,3 +111,5 @@ async function cargarProductosJSON() {
 }
 
 cargarProductosJSON();
+
+/*json render */
