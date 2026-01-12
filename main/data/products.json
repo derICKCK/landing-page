@@ -1,20 +1,17 @@
 [
   {
-    "id": 1,
-    "nombre": "Servicio de grabación",
-    "descripcion": "Grabación de vídeo profesional",
-    "precio": 15
+    "imagen": "../imagen/icono-camara.svg",
+    "titulo": "Grabación de cámara",
+    "descripcion": "Grabación de vídeos para redes, enfocado en marcas, empresas y proyectos personales."
   },
   {
-    "id": 2,
-    "nombre": "Edición de vídeo",
-    "descripcion": "Edición para redes sociales",
-    "precio": 25
+    "imagen": "../imagen/icono-edicion.svg",
+    "titulo": "Edición",
+    "descripcion": "Edición dinámica, diseño de sonido y efectos visuales para un video viral."
   },
-    {
-        "id": 3,
-        "nombre": "Fotografía de eventos",
-        "descripcion": "Cobertura fotográfica para eventos",
-        "precio": 50
-    }
+  {
+    "imagen": "../imagen/icono-redes.svg",
+    "titulo": "Gestión de Redes Sociales",
+    "descripcion": "Gestión diaria enfocada en el algoritmo para aumentar visibilidad."
+  }
 ]
