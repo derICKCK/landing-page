@@ -1,5 +1,5 @@
 function irAlInicio() {
-  window.location.href = "index.html";
+  window.location.href = "/";
 }
 
 const logoNav = document.getElementById("logo_nav");

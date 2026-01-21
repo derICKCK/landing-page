@@ -15,7 +15,7 @@ if (boton && seccionRedireccion) {
 
 /* ir al inicio con el logo */
 function irAlInicio() {
-  window.location.href = "index.html";  
+  window.location.href = "/";  
 }
 
 const logonav = document.getElementById("logo_nav");
@@ -30,17 +30,17 @@ const servicios = [
   {
     titulo: "Equipo",
     descripcion: "Grabaciones usando mi iPhone de última generación y un trípode estable. Cada toma está adaptada a tu estilo para que tu contenido destaque en redes sociales.",
-    imagen: "../imagen/tripode.jpeg"
+    imagen: "/imagen/tripode.jpeg"
   },
   {
     titulo: "Programa de Edición",
     descripcion: "Edición viral con CapCut, enfocada en crear videos con impacto visual y alto potencial de viralidad. Transformo tus ideas en contenido que captura la atención de tu audiencia.",
-    imagen: "../imagen/capcut.jpeg"
+    imagen: "/imagen/capcut.jpeg"
   },
   {
     titulo: "Gestión de Redes Sociales",
     descripcion: "Optimización de TikTok, Reels y Shorts, aplicando estrategias basadas en el funcionamiento de los algoritmos para maximizar alcance y engagement.",
-    imagen: "../imagen/instagram.jpg"
+    imagen: "/imagen/instagram.jpg"
   }
 ];
 
@@ -102,7 +102,7 @@ mostrarServicios(); /*Ejecucion de función */
 
 async function cargarProductosJSON() {
   try {
-    const res = await fetch("../data/products.json");
+    const res = await fetch("/data/products.json");
     const productos = await res.json();
     console.log("Productos desde JSON:", productos);
   } catch (error) {

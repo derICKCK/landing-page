@@ -7,7 +7,7 @@ host: '127.0.0.1',
 user: 'root',
 password: '', // mejor poner contraseña
 database: 'prueba',
-port: 3008
+port: 3308
 });
 
 
@@ -23,8 +23,42 @@ conexion.query("SELECT 1", err => {
 
 app.set("view engine","ejs");
 
+app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
+
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+app.get("/contacto", (req, res) => {
+  res.render("contacto");
+});
+
+app.get("/productos", (req, res) => {
+  res.render("productos");
+});
+
+app.get("/sobremi", (req, res) => {
+  res.render("sobremi");
+});
+
+app.get("/aviso-legal", (req, res) => {
+  res.render("aviso_legal");
+});
+
+app.get("/politicas", (req, res) => {
+  res.render("politicas");
+});
+
+app.get("/terminos", (req, res) => {
+  res.render("ter_condiciones");
+});
+
+app.get("/aviso_legal", (req, res) => {
+  res.render("aviso_legal");
+});
+
 
 app.get("/",function(req,res){
   res.render("registros")
