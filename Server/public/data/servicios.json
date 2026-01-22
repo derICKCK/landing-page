@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "nombre": "Grabación de vídeo",
+    "descripcion": "Grabación profesional para redes",
+    "precio": 120
+  },
+  {
+    "id": 2,
+    "nombre": "Edición de vídeo",
+    "descripcion": "Edición dinámica y profesional",
+    "precio": 80
+  },
+  {
+    "id": 3,
+    "nombre": "Gestión de redes",
+    "descripcion": "Gestión mensual de contenido",
+    "precio": 200
+  }
+]

@@ -43,10 +43,6 @@ app.get("/sobremi", (req, res) => {
   res.render("sobremi");
 });
 
-app.get("/aviso-legal", (req, res) => {
-  res.render("aviso_legal");
-});
-
 app.get("/politicas", (req, res) => {
   res.render("politicas");
 });
@@ -58,10 +54,51 @@ app.get("/terminos", (req, res) => {
 app.get("/aviso_legal", (req, res) => {
   res.render("aviso_legal");
 });
+//Api reset
+app.get("/api/contactos", (req, res) => {
+  const sql = "SELECT nombre, email, mensaje FROM contactos";
+
+  conexion.query(sql, (error, results) => {
+    if (error) {
+      console.error(error);
+      return res.status(500).json({ error: "Error al obtener contactos" });
+    }
+
+    return res.json(results);
+  });
+});
+
+const fs = require("fs");
+
+// Exportar contactos a archivo JSON (solo para la entrega)
+app.get("/export/contactos", (req, res) => {
+  const sql = "SELECT nombre, email, mensaje FROM contactos";
+
+  conexion.query(sql, (error, results) => {
+    if (error) {
+      console.error(error);
+      return res.status(500).send("Error al exportar contactos");
+    }
+    //  api servicios   
+  app.get("/api/servicios", (req, res) => {
+  const sql = "SELECT id, nombre, descripcion, precio FROM servicios";
+
+  conexion.query(sql, (error, results) => {
+    if (error) {
+      return res.status(500).json({ error: "Error al obtener servicios" });
+    }
+    res.json(results);
+  });
+});
 
 
-app.get("/",function(req,res){
-  res.render("registros")
+    fs.writeFileSync(
+      "./data/contactos.json",
+      JSON.stringify(results, null, 2)
+    );
+
+    return res.send("Archivo contactos.json generado correctamente");
+  });
 });
 
 const transporter = nodemailer.createTransport({
@@ -72,46 +109,48 @@ const transporter = nodemailer.createTransport({
     }
 });
 
+app.post("/contacto", (req, res) => {
+  const { nombre, email, mensaje } = req.body;
 
-app.post("/validar", (req, res) => {
-    const { nombre, email, edad } = req.body;
+  if (!nombre || !email || !mensaje) {
+    return res.status(400).send("Datos incompletos");
+  }
 
-    if (!nombre || !email || !edad) {
-        return res.status(400).send("Datos incompletos");
+  const sql = `
+    INSERT INTO contactos (nombre, email, mensaje)
+    VALUES (?, ?, ?)
+  `;
+
+  conexion.query(sql, [nombre, email, mensaje], (error) => {
+    if (error) {
+      console.error(error);
+      return res.status(500).send("Error al guardar mensaje");
     }
 
-    const sql = `
-        INSERT INTO alumnos (nombre, email, edad)
-        VALUES (?, ?, ?)
-    `;
+    // 1️⃣ Preparar email
+    const mailOptions = {
+      from: `"Derick Filmmaking" <derickmaker12@gmail.com>`,
+      to: email,
+      subject: "Mensaje recibido 🎬",
+      html: `
+        <h2>Gracias por contactar</h2>
+        <p>Hola <b>${nombre}</b>,</p>
+        <p>He recibido tu mensaje y me pondré en contacto contigo pronto.</p>
+        <br>
+        <p>🎬 Derick</p>
+      `
+    };
 
-    conexion.query(sql, [nombre, email, edad], (error) => {
-        if (error) {
-            console.error(error);
-            return res.status(500).send("Error al registrar");
-        }
-
-        const mailOptions = {
-           from: `"Derick Filmmaking" <derickmaker12@gmail.com>`,
-            to: email,
-            subject: "Bienvenido a Derick Filmmaking 🎬",
-            html: `
-                <h2>Bienvenido a Derick Filmmaking</h2>
-                <p>Hola <b>${nombre}</b>,</p>
-                <p>Tu registro se ha completado correctamente.</p>
-                <p>Gracias por confiar en mi trabajo.</p>
-                <br>
-                <p>🎬 Derick</p>
-            `
-        };
-
-        transporter.sendMail(mailOptions, (error) => {
-            if (error) console.error("Error enviando correo:", error);
-        });
-
-        res.send("Usuario registrado y correo enviado");
+    // 2️⃣ Enviar email (NO responde al cliente)
+    transporter.sendMail(mailOptions, (err) => {
+      if (err) console.error("Error enviando correo:", err);
     });
+
+    // 3️⃣ UNA ÚNICA respuesta
+    return res.send("Mensaje enviado correctamente");
+  });
 });
+
 
 
 app.listen(3008, function () {
