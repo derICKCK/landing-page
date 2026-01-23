@@ -1,16 +1,19 @@
-const express = require("express"); //importar librería
-const app = express(); //objeto para llamar a los métodos
-const mysql = require('mysql2');
+const express = require("express");
+const app = express();
+const mysql = require("mysql2");
 const nodemailer = require("nodemailer");
+const fs = require("fs");
+const path = require("path");
+
 const conexion = mysql.createConnection({
-host: '127.0.0.1',
-user: 'root',
-password: '', // mejor poner contraseña
-database: 'prueba',
-port: 3308
+  host: "127.0.0.1",
+  user: "root",
+  password: "",
+  database: "prueba",
+  port: 3308
 });
 
-
+// ---------- CONEXIÓN BD ----------
 conexion.on("error", err => {
   console.error("Error MySQL:", err.code);
 });
@@ -20,95 +23,76 @@ conexion.query("SELECT 1", err => {
   else console.log("MySQL conectado correctamente");
 });
 
-
-app.set("view engine","ejs");
-
+// ---------- CONFIG ----------
+app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.json());
-app.use(express.urlencoded({extended:false}));
+app.use(express.urlencoded({ extended: false }));
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
+// ---------- VISTAS ----------
+app.get("/", (req, res) => res.render("index"));
+app.get("/contacto", (req, res) => res.render("contacto"));
+app.get("/productos", (req, res) => res.render("productos"));
+app.get("/sobremi", (req, res) => res.render("sobremi"));
+app.get("/politicas", (req, res) => res.render("politicas"));
+app.get("/terminos", (req, res) => res.render("ter_condiciones"));
+app.get("/aviso_legal", (req, res) => res.render("aviso_legal"));
 
-app.get("/contacto", (req, res) => {
-  res.render("contacto");
-});
-
-app.get("/productos", (req, res) => {
-  res.render("productos");
-});
-
-app.get("/sobremi", (req, res) => {
-  res.render("sobremi");
-});
-
-app.get("/politicas", (req, res) => {
-  res.render("politicas");
-});
-
-app.get("/terminos", (req, res) => {
-  res.render("ter_condiciones");
-});
-
-app.get("/aviso_legal", (req, res) => {
-  res.render("aviso_legal");
-});
-//Api reset
+// ---------- API CONTACTOS ----------
 app.get("/api/contactos", (req, res) => {
   const sql = "SELECT nombre, email, mensaje FROM contactos";
 
   conexion.query(sql, (error, results) => {
     if (error) {
-      console.error(error);
       return res.status(500).json({ error: "Error al obtener contactos" });
     }
-
-    return res.json(results);
+    res.json(results);
   });
 });
 
-const fs = require("fs");
-
-// Exportar contactos a archivo JSON (solo para la entrega)
-app.get("/export/contactos", (req, res) => {
-  const sql = "SELECT nombre, email, mensaje FROM contactos";
-
-  conexion.query(sql, (error, results) => {
-    if (error) {
-      console.error(error);
-      return res.status(500).send("Error al exportar contactos");
-    }
-    //  api servicios   
-  app.get("/api/servicios", (req, res) => {
+// ---------- API SERVICIOS ----------
+app.get("/api/servicios", (req, res) => {
   const sql = "SELECT id, nombre, descripcion, precio FROM servicios";
 
   conexion.query(sql, (error, results) => {
     if (error) {
       return res.status(500).json({ error: "Error al obtener servicios" });
     }
+
+    // 🔹 Guardar JSON automático
+    const filePath = path.join(__dirname, "public/data/servicios.json");
+    fs.writeFileSync(filePath, JSON.stringify(results, null, 2));
+
     res.json(results);
   });
 });
 
+// ---------- EXPORT CONTACTOS A JSON ----------
+app.get("/export/contactos", (req, res) => {
+  const sql = "SELECT nombre, email, mensaje FROM contactos";
 
-    fs.writeFileSync(
-      "./data/contactos.json",
-      JSON.stringify(results, null, 2)
-    );
+  conexion.query(sql, (error, results) => {
+    if (error) {
+      return res.status(500).send("Error al exportar contactos");
+    }
 
-    return res.send("Archivo contactos.json generado correctamente");
+    const filePath = path.join(__dirname, "public/data/contactos.json");
+    fs.writeFileSync(filePath, JSON.stringify(results, null, 2));
+
+    res.send("Archivo contactos.json generado correctamente");
   });
 });
 
+// ---------- EMAIL ----------
 const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-        user: "derickmaker12@gmail.com",
-        pass: "raxsgruajfszxpdn"
-    }
+  service: "gmail",
+  auth: {
+    user: "derickmaker12@gmail.com",
+    pass: "raxsgruajfszxpdn"
+  }
 });
 
+// ---------- FORM CONTACTO ----------
 app.post("/contacto", (req, res) => {
   const { nombre, email, mensaje } = req.body;
 
@@ -121,14 +105,12 @@ app.post("/contacto", (req, res) => {
     VALUES (?, ?, ?)
   `;
 
-  conexion.query(sql, [nombre, email, mensaje], (error) => {
+  conexion.query(sql, [nombre, email, mensaje], error => {
     if (error) {
-      console.error(error);
       return res.status(500).send("Error al guardar mensaje");
     }
 
-    // 1️⃣ Preparar email
-    const mailOptions = {
+    transporter.sendMail({
       from: `"Derick Filmmaking" <derickmaker12@gmail.com>`,
       to: email,
       subject: "Mensaje recibido 🎬",
@@ -136,23 +118,14 @@ app.post("/contacto", (req, res) => {
         <h2>Gracias por contactar</h2>
         <p>Hola <b>${nombre}</b>,</p>
         <p>He recibido tu mensaje y me pondré en contacto contigo pronto.</p>
-        <br>
-        <p>🎬 Derick</p>
       `
-    };
-
-    // 2️⃣ Enviar email (NO responde al cliente)
-    transporter.sendMail(mailOptions, (err) => {
-      if (err) console.error("Error enviando correo:", err);
     });
 
-    // 3️⃣ UNA ÚNICA respuesta
-    return res.send("Mensaje enviado correctamente");
+    res.send("Mensaje enviado correctamente");
   });
 });
 
-
-
-app.listen(3008, function () {
+// ---------- SERVER ----------
+app.listen(3008, () => {
   console.log("Servidor iniciado en http://localhost:3008");
 });

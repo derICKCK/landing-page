@@ -1,20 +1,20 @@
 [
   {
-    "id": 1,
-    "nombre": "Grabación de vídeo",
-    "descripcion": "Grabación profesional para redes",
-    "precio": 120
+    "id": 4,
+    "nombre": "Grabación profesional",
+    "descripcion": "Grabación profesional para redes sociales",
+    "precio": "120.00"
   },
   {
     "id": 2,
     "nombre": "Edición de vídeo",
     "descripcion": "Edición dinámica y profesional",
-    "precio": 80
+    "precio": "80.00"
   },
   {
     "id": 3,
     "nombre": "Gestión de redes",
     "descripcion": "Gestión mensual de contenido",
-    "precio": 200
+    "precio": "200.00"
   }
 ]

@@ -1,69 +1,58 @@
+// ===== CARRITO =====
+
+// Leer carrito de localStorage o crear uno vacío
+
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+// Actualizar contador del carrito
+function actualizarContador() {
+  const contador = document.getElementById("contadorCarrito");
+  if (contador) {
+    contador.textContent = carrito.length;
+  }
+}
+
+// Añadir servicio al carrito
+function añadirAlCarrito(servicio) {
+  carrito.push(servicio);
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  actualizarContador();
+}
+
+// ===== SERVICIOS =====
+
 const contenedor = document.getElementById("listaServicios");
-const contenedorCarrito = document.getElementById("carrito");
 
-let carrito = [];
-
-// ================== CARGAR SERVICIOS ==================
 async function cargarServicios() {
   try {
     const res = await fetch("/api/servicios");
-    if (!res.ok) throw new Error("API no disponible");
     const servicios = await res.json();
-    renderServicios(servicios);
+
+    contenedor.innerHTML = servicios.map(servicio => `
+      <article class="card-servicio">
+        <h2>${servicio.nombre}</h2>
+        <p>${servicio.descripcion}</p>
+        <p><strong>${servicio.precio} €</strong></p>
+        <button class="btn-servicio" data-id="${servicio.id}">
+          Añadir al carrito
+        </button>
+      </article>
+    `).join("");
+
+    // Eventos de los botones
+    document.querySelectorAll(".btn-servicio").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const servicioElegido = servicios.find(
+          s => s.id == btn.dataset.id
+        );
+        añadirAlCarrito(servicioElegido);
+      });
+    });
+
   } catch (error) {
-    console.warn("Usando JSON local");
-    const res = await fetch("/data/servicios.json");
-    const servicios = await res.json();
-    renderServicios(servicios);
+    console.error("Error cargando servicios:", error);
   }
 }
 
-// ================== RENDER SERVICIOS ==================
-function renderServicios(servicios) {
-  contenedor.innerHTML = servicios.map(servicio => `
-    <article class="card-servicio">
-      <img src="${servicio.imagen}" alt="${servicio.titulo}">
-      <h2>${servicio.titulo}</h2>
-      <p>${servicio.descripcion}</p>
-      <p><strong>${servicio.precio} €</strong></p>
-      <button class="btn-add" data-id="${servicio.id}">
-        Añadir al carrito
-      </button>
-    </article>
-  `).join("");
-}
-
-// ================== CARRITO ==================
-function añadirCarrito(id) {
-  const producto = carrito.find(p => p.id === id);
-
-  if (producto) {
-    producto.cantidad++;
-  } else {
-    carrito.push({ id, cantidad: 1 });
-  }
-
-  renderCarrito();
-}
-
-// ================== RENDER CARRITO ==================
-function renderCarrito() {
-  if (!contenedorCarrito) return;
-
-  contenedorCarrito.innerHTML = carrito.map(item => `
-    <li>
-      Servicio ID ${item.id} — Cantidad: ${item.cantidad}
-    </li>
-  `).join("");
-}
-
-// ================== EVENTOS ==================
-contenedor.addEventListener("click", (e) => {
-  if (!e.target.classList.contains("btn-add")) return;
-
-  const id = parseInt(e.target.dataset.id);
-  añadirCarrito(id);
-});
-
-// ================== INICIO ==================
 cargarServicios();
+actualizarContador();
